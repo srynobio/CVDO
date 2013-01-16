@@ -1,0 +1,39 @@
+Documentation.
+
+Used for DO development project.
+
+Outline of steps used to complete CVDO.
+
+1. Preformed steps layed out in README file.
+
+2. Transfered CVDO.obo file to local machine to work on OBO-Edit.
+   - Started by using reasoner to remove any redundant links in ontology.
+   - Check each "name:" of ontology, because some of the wording was void of usable 
+     pattern matching for clean up steps. i.e. word order.
+   - Review the obo file and found and additional 11 word that were missed clean up steps. 
+
+3. Next, made two scripts which take terms from fma.obo and PATO.obo and match them to CVDO.obo (Name_Matcher.pl & Common_Matcher.pl).
+
+4. Used anatomy terms from fma.obo (PATO.obo had zero matches), to create a list of anatomy terms. Used this list to clean up nodes 
+   with two or more is_a parents (based on the EQ model use by Mungall et al.).
+
+5. Many CVDO terms were deleted, but none were added.  Rough outline of each step is noted in ../data/Term_Clean_up.txt file.
+
+6. Wrote script to add Gene variant file, to CVDO. Because of timing of addition, was only able to add ~80% computationally, 
+   added the remaining manually. (this step has been taken care of now).
+
+7. Used the symptom ontology to clean-up/add proper is_a relationships.  This was used manually via "import terms" in OBO-Edit.
+
+8. Added Harrison's definition to each term manually.
+
+9. Further cleaned up relationships using OBOB.
+
+10. Added SNOMED to every term possable.
+
+11. Created Harrison's ontology.
+
+12. Added HGNC term to each gene if available.
+
+
+
+

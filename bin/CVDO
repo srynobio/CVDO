@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Shell script by Shawn Rynearson For Karen Eilbeck
+# shawn.rynearson@gmail.com
+# Used for DO development project.
+
+
+#----------------------------------------------------------------------
+# Generating the obo file from MeSH XML.
+
+echo "Generating obo file from XML file."
+./MeSHtoOBO_Parser.pl ../data/desc2013.xml 
+
+./OBO_Generator.pl tmp1.txt MeSHOBO.obo 
+
+mv MeSHOBO.obo ../data
+
+#----------------------------------------------------------------------
+# Takes reference obo file and adds xref's based on accession number
+
+echo "Adding xrefs to obo file."
+
+# Pulls out all xrefs form a reference obo file.
+./Xref_Term_Parser.pl ../Ontologies/HumanDO.obo 
+
+# Isolates just xrefs with D0..accession number.
+./Xref_Iso_Diease.pl 
+
+# Takes isolated terms and addeds them to the working onlology. 
+./Xref_Combine.pl 
+
+# Formats to obo file specs.
+./Xref_Formatter.pl
+
+# Talks the working oob file and cleans up the xref terms 
+# so they have correct format.  
+./Xref_Final.pl 
+
+#----------------------------------------------------------------------
+# Looks for and outputs parent relationship of each node.
+
+echo "Isolating parent relationships." 
+./GO_Traverser.pl --uniq ../data/CVDO.obo 
+
+./Tree_Dup_Remover.pl traversed.txt 
+
+./Tree_Uniq_Reporter.pl 
+
+./GO_Traverser.pl --common ../data/CVDO.obo 
+
+
+#----------------------------------------------------------------------
+
+rm uniq_list.txt traversed_dupes.txt traversed_report.txt traversed_uniqs.txt traversed.txt tmp1.txt
+rm ../data/working.obo ../data/merged.txt ../data/combine_xref.txt ../data/xref_list.txt ../data/MeSHOBO.obo 
+
