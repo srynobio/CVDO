@@ -1,40 +1,32 @@
-README 
+##CVDO
 
 Used for DO development project.
 Script by Shawn Rynearson For Karen Eilbeck
 shawn.rynearson@gmail.com
 
-** README and shell script created by Shawn Rynearson <shawn.rynearson@gmail.com>
+* README and shell script created by Shawn Rynearson <shawn.rynearson@gmail.com>
    Additional comments and some modification to Mark Singleton scripts were made by Shawn Rynearson.
 
-** CVDO.sh will create a file called CVDO, there are additonal scripts to preform other tasks noted 
+* CVDO.sh will create a file called CVDO, there are additonal scripts to preform other tasks noted 
    at bottom 
 
-** See DOC file for steps preformed after shell script was ran for CVDO, and methods used for OBO-Edit 
+* See DOC file for steps preformed after shell script was ran for CVDO, and methods used for OBO-Edit 
    as well as overall development of CVDO.
 
-** Must have a bin and data directory, if not working in /trunk.  All perl and .sh script go in bin.  
+* Must have a bin and data directory, if not working in /trunk.  All perl and .sh script go in bin.  
    MeSH.xml file go in /data.  Additionally, reference xref files go in /data.
 
-** Currently the XML_Parser will output only C14 values.  
+* Currently the XML_Parser will output only C14 values.  
    When building a different disease ontology, changes will have to be made throughout the scripts,
    would suggest doing a grep command for: C14 and cardiovascular, etc, to find needed changes. 
 
-
-
- START OF CVDO.sh STEPS.
-
-************************************************************************************************
-** Steps of XML Parsering **
-************************************************************************************************
+###Steps of XML Parsering
 
 * Checked the output of C14 totals, and programs work correctly.
 * When cleaning up the scripts I discovered that I only needed two of Mark's scripts. 
   Karen has copies of all of them (if needed) on an external hard drive.
 
-************************************************************************************************
-** Steps of Tree_Generator  **
-************************************************************************************************
+###Steps of Tree_Generator
 
 ./GO_Traverser.pl
 * Uses go-perl to traverse ontology tree and outputs each terms name, acc number, and parent. 
@@ -46,9 +38,7 @@ shawn.rynearson@gmail.com
 ./Tree_Uniq_Reporter.pl
 * Uses Unique output and allows you to isolate the parents who have two or more unique parents.
 
-************************************************************************************************
-** Steps of Xref_Add_MeSH.sh  **
-************************************************************************************************
+###Steps of Xref_Add_MeSH.sh 
 
 ./Xref_Term_Parser.pl
 * Take reference obo file and collect all xrefs terms.  Outputs them as a total list.
@@ -71,9 +61,7 @@ shawn.rynearson@gmail.com
 ./Tree_Sum_Nodes.pl
 * Generates a table similar to figure 4 of Karen's grant proposal.
 
-************************************************************************************************
-******* Optional scripts ******
-************************************************************************************************
+###Optional scripts
 
 ./OBO_Cleanup.pl
 * Used to clean up the order of the names in ontology.  If using ./Gene_Merge.pl and Xref_Gene_transitivity.pl 
