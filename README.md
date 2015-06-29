@@ -1,9 +1,5 @@
 ##CVDO: *Cardiovascular Disease Ontology*
 
-
-* README and shell script created by Shawn Rynearson <shawn.rynearson@gmail.com>
-   Additional comments and some modification to Mark Singleton scripts were made by Shawn Rynearson.
-
 * CVDO.sh will create a file called CVDO, there are additonal scripts to preform other tasks noted 
    at bottom 
 
