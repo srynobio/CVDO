@@ -1,8 +1,5 @@
-##CVDO
+##CVDO: *Cardiovascular Disease Ontology*
 
-Used for DO development project.
-Script by Shawn Rynearson For Karen Eilbeck
-shawn.rynearson@gmail.com
 
 * README and shell script created by Shawn Rynearson <shawn.rynearson@gmail.com>
    Additional comments and some modification to Mark Singleton scripts were made by Shawn Rynearson.
